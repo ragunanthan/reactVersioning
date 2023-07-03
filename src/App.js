@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import CacheBuster from './CacheBuster';
 import './App.css';
+const Sample =  lazy(() => import('./Sample')) ;
 
 class App extends Component {
   render() {
@@ -13,14 +14,17 @@ class App extends Component {
           }
 
           return (
-            <div className="App">
+            <Suspense fallback={<p>loading</p>}>
+              <div className="App">
               <header className="App-header">
                 <h1>Cache Busting - Example</h1>
                 <p>
                   Bundle version - <code>v{global.appVersion}</code>
                 </p>
               </header>
+              <Sample />
             </div>
+            </Suspense>
           );
         }}
       </CacheBuster>
