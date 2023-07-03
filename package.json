@@ -1,6 +1,6 @@
 {
   "name": "cache-busting-example",
-  "version": "0.1.3",
+  "version": "0.1.1",
   "private": true,
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "prebuild": "npm run generate-build-version",
     "generate-build-version": "node generate-build-version",
     "start": "react-scripts start",
-    "build": "npm version patch && node generate-build-version && node generate-build-version && react-scripts build",
+    "build": "npm version patch --force && node generate-build-version && node generate-build-version && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
